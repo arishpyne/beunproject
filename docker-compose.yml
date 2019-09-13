@@ -1,0 +1,20 @@
+version: "3"
+services:
+  beunproject:
+    image: beunproject:latest
+    ports:
+      - 8000:8000
+    environment:
+      POSTGRES_USER: beunuser
+      POSTGRES_PASSWORD: beunpass
+      POSTGRES_DB: beunproject
+    volumes:
+      - ./:/proj
+    command: sleep infinity
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: beunuser
+      POSTGRES_PASSWORD: beunpass
+      POSTGRES_DB: beunproject
